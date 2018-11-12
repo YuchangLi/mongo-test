@@ -54,6 +54,7 @@ class ApplicationConfig extends AbstractMongoConfiguration {
 }
 
 class Person {
+  // 取得是默认_id字段，插入会生产_class字段
   private String id;
   private String name;
   private String company;
@@ -105,12 +106,13 @@ class MyService {
 
 //     repository.deleteAll();
 
-//     Person person = new Person();
-//     person.setFirstname("Oliver");
-//     person.setLastname("Gierke");
-//     person = repository.save(person);
+     Person person = new Person();
+     person.setId("id123123123");
+     person.setName("kanghongj");
+     person.setCompany("ysn");
+     person = repository.save(person);
 //
-     List<Person> lastNameResults = repository.findByName("李玉长");
+     List<Person> lastNameResults = repository.findByName("kanghongj");
      if(lastNameResults!=null) {
        lastNameResults.forEach(p->System.out.println(p));
      }
